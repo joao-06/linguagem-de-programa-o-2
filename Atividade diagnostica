@@ -1,0 +1,271 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Turma {
+    private String identificacao;
+    private List<Professor> professores;
+    private List<Estudante> estudantes;
+
+    
+    public Turma(String identificacao) {
+        this.identificacao = identificacao;
+        this.professores = new ArrayList<>();
+        this.estudantes = new ArrayList<>();
+    }
+
+    public String getIdentificacao() {
+        return identificacao;
+    }
+
+    public void setIdentificacao(String identificacao) {
+        this.identificacao = identificacao;
+    }
+
+    public void adicionarProfessor(Professor professor) {
+        professores.add(professor);
+    }
+
+    public void adicionarEstudante(Estudante estudante) {
+        estudantes.add(estudante);
+    }
+
+    public void listarProfessores() {
+        System.out.println("Professores na turma " + identificacao + ":");
+        for (Professor professor : professores) {
+            professor.mostrarDadosProfessor();
+        }
+    }
+
+    public void listarEstudantes() {
+        System.out.println("Estudantes na turma " + identificacao + ":");
+        for (Estudante estudante : estudantes) {
+            estudante.mostrarDadosEstudante();
+        }
+    }
+
+    public void mostrarDadosTurma() {
+        System.out.println("Identificacao: " + identificacao);
+    }
+}
+
+class Curso {
+    private String nomeCurso;
+    private int quantSemestre;
+
+    public Curso(String nomeCurso, int quantSemestre) {
+        this.nomeCurso = nomeCurso;
+        this.quantSemestre = quantSemestre;
+    }
+
+    public String getNomeCurso() {
+        return nomeCurso;
+    }
+
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
+    }
+
+    public int getQuantSemestre() {
+        return quantSemestre;
+    }
+
+    public void setQuantSemestre(int quantSemestre) {
+        this.quantSemestre = quantSemestre;
+    }
+
+    public void mostrarDadosCurso() {
+        System.out.println("Nome do Curso: " + nomeCurso);
+        System.out.println("Total de semestres: " + quantSemestre);
+    }
+}
+
+
+class Pessoa {
+    private String nome;
+    private int cpf;
+    private String endereco;
+    private int telefone;
+
+    
+    public Pessoa(String nome, int cpf, String endereco, int telefone) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
+    }
+
+    
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public void mostrarDadosPessoa() {
+        System.out.println("Nome: " + nome);
+        System.out.println("CPF: " + cpf);
+        System.out.println("Endereco: " + endereco);
+        System.out.println("Telefone: " + telefone);
+    }
+}
+
+
+class Professor extends Pessoa {
+    private int siaep;
+
+    public Professor(String nome, int cpf, String endereco, int telefone, int siaep) {
+        super(nome, cpf, endereco, telefone); 
+        this.siaep = siaep;
+    }
+
+    public int getSiaep() {
+        return siaep;
+    }
+
+    public void setSiaep(int siaep) {
+        this.siaep = siaep;
+    }
+
+    public void mostrarDadosProfessor() {
+        mostrarDadosPessoa(); 
+        System.out.println("SIAEP: " + siaep);
+    }
+}
+
+class Estudante extends Pessoa {
+    private String matricula;
+
+    
+    public Estudante(String nome, int cpf, String endereco, int telefone, String matricula) {
+        super(nome, cpf, endereco, telefone); 
+        this.matricula = matricula;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public void mostrarDadosEstudante() {
+        mostrarDadosPessoa(); 
+        System.out.println("Matricula: " + matricula);
+    }
+}
+
+public Class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new scanner(System.In);
+        Turma turma = new turma();
+        Curso curso = new curso();
+        
+        boolean continuar = true;
+        
+        while (continuar) {
+            
+            System.out.println("1 - Cadastrar Estudante");
+            System.out.println("2 - Cadastrar Professor");
+            System.out.println("3 - Listar Cursos");
+            System.out.println("4 - Listar Turma (Professores e Estudantes)");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opcao: ");
+            
+            int opcao = scanner.nextInt();
+            scanner.nextLine();  // quebra de linha
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Cadastrar Estudante:");
+                    System.out.print("Nome: ");
+                    String nomeEstudante = scanner.nextLine();
+                    System.out.print("CPF: ");
+                    int cpfEstudante = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Endereco: ");
+                    String enderecoEstudante = scanner.nextLine();
+                    System.out.print("Telefone: ");
+                    int telefoneEstudante = scanner.nextInt();
+                    scanner.nextLine();  
+                    System.out.print("Matricula: ");
+                    String matricula = scanner.nextLine();
+                    Estudante estudante = new Estudante(nomeEstudante, cpfEstudante, enderecoEstudante, telefoneEstudante, matricula);
+                    turma1.adicionarEstudante(estudante);
+                    System.out.println("Estudante cadastrado com sucesso!");
+                    break;
+
+                case 2:
+                    System.out.println("Cadastrar Professor:");
+                    System.out.print("Nome: ");
+                    String nomeProfessor = scanner.nextLine();
+                    System.out.print("CPF: ");
+                    int cpfProfessor = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Endereco: ");
+                    String enderecoProfessor = scanner.nextLine();
+                    System.out.print("Telefone: ");
+                    int telefoneProfessor = scanner.nextInt();
+                    scanner.nextLine();  
+                    System.out.print("SIAEP: ");
+                    int siaep = scanner.nextInt();
+                    Professor professor = new Professor(nomeProfessor, cpfProfessor, enderecoProfessor, telefoneProfessor, siaep);
+                    turma1.adicionarProfessor(professor);
+                    System.out.println("Professor cadastrado com sucesso!");
+                    break;
+
+                case 3:
+                    System.out.println("Listar Cursos:");
+                    for (Curso curso : cursos) {
+                        curso.mostrarDadosCurso();
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Listar Turma (Professores e Estudantes):");
+                    turma.listarTurma();
+                    break;
+
+                case 0:
+                    continuar = false;
+                    System.out.println("Encerrando o programa...");
+                    break;
+
+                default:
+                    System.out.println("Opcao invalida! Tente novamente.");
+                    break;
+            }
+        }
+
+        scanner.close();
+    }
+        
+    }
+}
