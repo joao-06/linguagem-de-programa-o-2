@@ -15,12 +15,14 @@ import java.util.List;
 
 class Turma{
     private String identificacao;
+    private Curso curso;
     private List<Professor> professores;
     private List<Estudante> estudantes;
 
     
-    public Turma(String identificacao) {
+    public Turma(String identificacao, Curso curso) {
         this.identificacao = identificacao;
+        this.curso = curso;
         this.professores = new ArrayList<>();
         this.estudantes = new ArrayList<>();
     }
@@ -54,6 +56,16 @@ class Turma{
         }
     }
 
+    public void mostrarSituacaoAluno(String matricula) {
+        for (Estudante estudante : estudantes) {
+            if (estudante.getMatricula().equals(matricula)) {
+                System.out.println("Situação do aluno " + estudante.getNome() + " (" + matricula + "): ");
+                estudante.mostrarDadosEstudante();  // Exibe os dados e a situação
+                return;
+            }
+        }
+        System.out.println("Aluno com matrícula " + matricula + " não encontrado na turma.");
+    }
     
     public void listarEstudantes() {
         System.out.println("Estudantes na turma " + identificacao + ":");
@@ -71,14 +83,18 @@ class Turma{
     }
 
     
-    void listarTurma() {
-        
+     public void listarEstudantes() {
+        System.out.println("Estudantes na turma " + identificacao + ":");
+        for (Estudante estudante : estudantes) {
+            estudante.mostrarDadosEstudante();
+        }
     }
 
-    private void mostrarDadosEstudantes() {
-    }
-
-    private void mostrarDadosProfessor() {
+    // Mostrar dados completos da turma
+    public void mostrarDadosTurma() {
+        System.out.println("Identificação da turma: " + identificacao);
+        listarProfessores();  // Lista os professores
+        listarEstudantes();   // Lista os estudantes
     }
 
   
