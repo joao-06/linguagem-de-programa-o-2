@@ -10,21 +10,21 @@ package atividade1;
  * @author aluno
  */
 class Curso {
-    private String nomeCurso;
+    private String nome;
     private int quantSemestre;
 
-    public Curso(String nomeCurso, int quantSemestre) {
-        this.nomeCurso = nomeCurso;
+    public Curso(String nome, int quantSemestre) {
+        this.nomeCurso = nome;
         this.quantSemestre = quantSemestre;
     }
 
     public Curso() {}
 
-    public String getNomeCurso() {
+    public String getNome() {
         return nomeCurso;
     }
 
-    public void setNomeCurso(String nomeCurso) {
+    public void setNomeCurso(String nome) {
         this.nomeCurso = nomeCurso;
     }
 
@@ -37,7 +37,7 @@ class Curso {
     }
 
     public void mostrarDadosCurso() {
-        System.out.println("Nome do Curso: " + nomeCurso);
+        System.out.println("Nome do Curso: " + nome);
         System.out.println("Total de semestres: " + quantSemestre);
     }
 }
