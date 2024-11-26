@@ -12,40 +12,46 @@ class Estudante extends Pessoa {
     private float nota2;
     private float nota3;
     private double media;
-   
-    
+    private Curso curso; //relacionar com a classe Curso
 
     
     public Estudante(String nome, String cpf, String endereco, String telefone, String matricula,
-    float nota1, float nota2, float nota3) {
+    float nota1, float nota2, float nota3, Curso curso) {
         super(nome, cpf, endereco, telefone); 
         this.matricula = matricula;
         this.nota1 = nota1;
         this.nota2 = nota2;
-        this.nota3 = nota3;
-        
-        
+        this.nota3 = nota3;    
+        this.curso = curso;
+        calcularMedia();
     }
 
-  
-    
-    void Calcular(float nota1, float nota2, float nota3){
-         
-     
-     media = (nota1 + nota2 + nota3) / 3;
-        
-        if(media >= 7 ){
-            System.out.println("Aluno aprovado");
-            
-        } else if(media > 2.5 && media < 7) {
-            
-            System.out.println("Recuperação");
-        } else if (media < 2.5){
-            System.out.println("Aluno reprovado");
-        }else{}
+     private void calcularMedia() {
+        media = (nota1 + nota2 + nota3) / 3;
     }
 
-  
+    public double getMedia() {
+        return media;
+    }
+
+    public String getSituacao() {
+        if (media >= 7) {
+            return "Aprovado";
+        } else if (media >= 2.5) {
+            return "Recuperação";
+        } else {
+            return "Reprovado";
+        }
+    }
+
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
    
     public String getMatricula() {
         return matricula;
@@ -78,10 +84,12 @@ class Estudante extends Pessoa {
     public void setNota3(float nota3) {
         this.nota3 = nota3;
     }
-    public void mostrarDadosEstudante() {
+     public void mostrarDadosEstudante() {
         mostrarDadosPessoa(); 
-        System.out.println("Matricula: " + matricula);
-        System.out.println("Media: " + media);
+        System.out.println("Matrícula: " + matricula);
+        System.out.println("Média: " + media);
+        System.out.println("Situação: " + getSituacao());
+        System.out.println("Curso: " + curso.getNome());
     }
 
     
