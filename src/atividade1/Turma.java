@@ -109,6 +109,19 @@ class Turma{
             estudante.mostrarDadosEstudante();
         }
     }
+            public void listarTodosAlunos() {
+    System.out.println("Lista de Estudantes:");
+    for (Estudante estudante : estudantes) {
+        System.out.println("Nome: " + estudante.getNome());
+        System.out.println("Matrícula: " + estudante.getMatricula());
+        System.out.println("Nota 1: " + estudante.getNota1());
+        System.out.println("Nota 2: " + estudante.getNota2());
+        System.out.println("Nota 3: " + estudante.getNota3());
+        System.out.println("Média Final: " + estudante.calcularMediaFinal());
+        System.out.println("Situação: " + estudante.getSituacao());
+        System.out.println("---------------------------");
+    }
+}
 
     // Mostrar dados completos da turma
     public void mostrarDadosTurma() {
