@@ -82,10 +82,44 @@ import java.util.Scanner;
                         curso.mostrarDadosCurso();
                     break;
 
-                case 4:
-                    System.out.println("Listar Turma (Professores e Estudantes):");
-                    turma.listarTurma();
-                    break;
+               case 4:
+              boolean continuarSubmenu = true;
+                while (continuarSubmenu) {
+                    System.out.println("\n--- Submenu Listar Alunos ---");
+                    System.out.println("1 - Lista de Alunos Aprovados");
+                    System.out.println("2 - Lista de Alunos na Final");
+                    System.out.println("3 - Lista de Alunos Reprovados");
+                    System.out.println("0 - Voltar ao Menu Principal");
+                    System.out.print("Escolha uma opção: ");
+
+              int opcaoSubmenu = scanner.nextInt();
+              scanner.nextLine(); // Consome quebra de linha
+
+            switch (opcaoSubmenu) {
+              case 1:
+                  System.out.println("\n--- Alunos Aprovados ---");
+                  turma.listarAlunosPorSituacao("Aprovado");
+              break;
+
+              case 2:
+                  System.out.println("\n--- Alunos na Final ---");
+                  turma.listarAlunosPorSituacao("Final");
+             break;
+
+            case 3:
+                System.out.println("\n--- Alunos Reprovados ---");
+                turma.listarAlunosPorSituacao("Reprovado");
+                break;
+
+            case 0:
+                continuarSubmenu = false;
+                break;
+
+            default:
+                System.out.println("Opção inválida! Tente novamente.");
+        }
+    }
+    break;
 
                 case 0:
                     continuar = false;
