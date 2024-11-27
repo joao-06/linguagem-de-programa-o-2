@@ -27,6 +27,7 @@ import java.util.Scanner;
             System.out.println("2 - Cadastrar Professor");
             System.out.println("3 - Listar Cursos");
             System.out.println("4 - Listar Turma (Professores e Estudantes)");
+            System.out.println("5 - Listar dos alunos");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
             
@@ -120,6 +121,10 @@ import java.util.Scanner;
         }
     }
     break;
+              case 5:
+                System.out.println("\n Lista de Todos os Alunos");
+                turma.listarTodosAlunos();
+                break;
 
                 case 0:
                     continuar = false;
