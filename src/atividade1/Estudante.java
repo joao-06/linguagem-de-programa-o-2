@@ -13,6 +13,7 @@ class Estudante extends Pessoa {
     private float nota3;
     private double media;
     private Curso curso; //relacionar com a classe Curso
+    private Double notaRecuperacao; // Para armazenar a nota de recuperação
 
     
     public Estudante(String nome, String cpf, String endereco, String telefone, String matricula,
@@ -23,6 +24,7 @@ class Estudante extends Pessoa {
         this.nota2 = nota2;
         this.nota3 = nota3;    
         this.curso = curso;
+        this.notaRecuperacao = null; // Sem nota de recuperação inicialmente
         calcularMedia();
     }
 
@@ -35,15 +37,24 @@ class Estudante extends Pessoa {
     }
 
     public String getSituacao() {
-        if (media >= 7) {
+         if (media >= 7) {
             return "Aprovado";
-        } else if (media >= 2.5) {
+        } else if (media >= 5) {
             return "Recuperação";
-        } else {
+        } else if (media >= 2.5) {
             return "Reprovado";
+        } else if (notaRecuperacao != null) {
+            // Caso a nota de recuperação tenha sido dada
+            return notaRecuperacao >= 5 ? "Aprovado (Recuperação)" : "Reprovado (Recuperação)";
+        } else {
+            return "SN"; // Sem nota de recuperação
         }
     }
 
+    // Método para adicionar a nota de recuperação
+    public void adicionarNotaRecuperacao(double nota) {
+        this.notaRecuperacao = nota;
+    }
 
     public Curso getCurso() {
         return curso;
@@ -90,6 +101,9 @@ class Estudante extends Pessoa {
         System.out.println("Média: " + media);
         System.out.println("Situação: " + getSituacao());
         System.out.println("Curso: " + curso.getNome());
+         if (notaRecuperacao != null) {
+            System.out.println("Nota de Recuperação: " + notaRecuperacao);
+        }
     }
 
     
