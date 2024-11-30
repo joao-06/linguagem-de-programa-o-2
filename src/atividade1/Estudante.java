@@ -14,6 +14,7 @@ class Estudante extends Pessoa {
     private double media;
     private Curso curso; //relacionar com a classe Curso
     private Double notaRecuperacao; // Para armazenar a nota de recuperação
+    private double novaNota;
 
     
     public Estudante(String nome, String cpf, String endereco, String telefone, String matricula,
@@ -56,7 +57,11 @@ class Estudante extends Pessoa {
             return "SN"; // Sem nota de recuperação
         }
     }
-        public void alterarNotaFinal(double novaNota, Pessoa usuario) {
+    public void notaFinal(double novaNota){
+        System.out.println("digite a nota da final: ");
+        
+    }
+        public void alterarNotaFinal(double novaNota) {
         if (this.getSituacao().equals("Final")) {
             if (usuario.getPapel().equals("Professor")) {
                 this.adicionarNotaRecuperacao(novaNota);  // Altera a nota de recuperação
