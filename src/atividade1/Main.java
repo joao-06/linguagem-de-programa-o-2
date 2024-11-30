@@ -28,6 +28,7 @@ import java.util.Scanner;
             System.out.println("3 - Listar Cursos");
             System.out.println("4 - Listar Turma (Professores e Estudantes)");
             System.out.println("5 - Listar dos alunos");
+            System.out.println("6 - resultado da final");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
             
@@ -124,6 +125,26 @@ import java.util.Scanner;
               case 5:
                 System.out.println("\n Lista de Todos os Alunos");
                 turma.listarTodosAlunos();
+                break;
+
+                 case 6:
+                System.out.println("1- lista de alunos aprovados na final");
+                System.out.println("1- lista de alunos reprovados na final");
+
+                int opcao = scanner.nextInt();
+                scanner.nextLine();  
+
+                    case 1:
+                    System.out.println("Lista de alunos aprovados na final");
+                    
+                    
+                    break;
+
+                    case 2:
+                    System.out.println("Lista de alunos reprovados na final");
+                    break;
+
+                
                 break;
 
                 case 0:
