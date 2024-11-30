@@ -44,8 +44,12 @@ class Estudante extends Pessoa {
         } else if (media >= 2.5) {
             return "Reprovado";
         } else if (notaRecuperacao != null) {
-            // Caso a nota de recuperação tenha sido dada
-            return notaRecuperacao >= 5 ? "Aprovado (Recuperação)" : "Reprovado (Recuperação)";
+            if(notaRecuperacao >= 5){
+                System.out.println("Aprovado");      
+            } else{
+                 System.out.println("Reprovado");
+            }
+            
         } else {
             return "SN"; // Sem nota de recuperação
         }
