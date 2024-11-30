@@ -50,10 +50,23 @@ class Estudante extends Pessoa {
             return "SN"; // Sem nota de recuperação
         }
     }
+        public void alterarNotaFinal(double novaNota, Pessoa usuario) {
+        if (this.getSituacao().equals("Final")) {
+            if (usuario.getPapel().equals("Professor")) {
+                this.adicionarNotaRecuperacao(novaNota);  // Altera a nota de recuperação
+                System.out.println("Nota de recuperação alterada com sucesso.");
+            } else {
+                System.out.println("Acesso negado. Apenas o professor pode alterar a nota final.");
+            }
+        } else {
+            System.out.println("O aluno não está na final. Nenhuma alteração permitida.");
+        }
+    }
 
     // Método para adicionar a nota de recuperação
     public void adicionarNotaRecuperacao(double nota) {
         this.notaRecuperacao = nota;
+        calcularMedia();
     }
 
     public Curso getCurso() {
