@@ -45,7 +45,8 @@ class Estudante extends Pessoa {
             return "Reprovado";
         } else if (notaRecuperacao != null) {
             if(notaRecuperacao >= 5){
-                System.out.println("Aprovado");      
+                System.out.println("Aprovado");  
+                 finalAprovados.add();
             } else{
                  System.out.println("Reprovado");
             }
