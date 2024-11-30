@@ -136,12 +136,13 @@ import java.util.Scanner;
 
                     case 1:
                     System.out.println("Lista de alunos aprovados na final");
-                    
+                    turma.resultadoFinalAprovados();
                     
                     break;
 
                     case 2:
                     System.out.println("Lista de alunos reprovados na final");
+                    turma.resultadoFinalreprovados();
                     break;
 
                 
