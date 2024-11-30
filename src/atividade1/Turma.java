@@ -134,6 +134,13 @@ class Turma{
         System.out.println("---------------------------");
     }
 }
+    public void resultadoFinalAprovados(){
+        finalAprovados.add();
+    }
+
+    public void resultadoFinalReprovados(){
+        finalReprovados.add();
+    }
 
     // Mostrar dados completos da turma
     public void mostrarDadosTurma() {
