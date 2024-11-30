@@ -55,6 +55,13 @@ class Turma{
             professor.mostrarDadosProfessor();
         }
     }
+     public void listarEstudantes() {
+        System.out.println("Estudantes na turma " + identificacao + ":");
+        for (Estudante estudante : estudantes) {
+            estudante.mostrarDadosEstudante();
+        }
+    }
+       
 
     public void mostrarSituacaoAluno(String matricula) {
         for (Estudante estudante : estudantes) {
@@ -68,47 +75,52 @@ class Turma{
     }
     
 
-        public void classificarEstudantes() {
-        List<Estudante> aprovados = new ArrayList<>();
-        List<Estudante> finais = new ArrayList<>();
-        List<Estudante> reprovados = new ArrayList<>();
 
-        for (Estudante estudante : estudantes) {
+     public void listaDeAprovados(){
+          List<Estudante> aprovados = new ArrayList<>();
+          for (Estudante estudante : estudantes) {
             String situacao = estudante.getSituacao();
             if (situacao.equals("Aprovado")) {
                 aprovados.add(estudante);
-            } else if (situacao.equals("Final")) {
-                finais.add(estudante);
-            } else if (situacao.equals("Reprovado")) {
-                reprovados.add(estudante);
             }
         }
-
-       // Exibindo os resultados
-        System.out.println("\n Alunos Aprovados");
+         System.out.println("Lista de alunos aprovados: ");
         for (Estudante estudante : aprovados) {
             System.out.println("Estudantes na turma " + identificacao + ":");
             estudante.mostrarDadosEstudante();
         }
-
-        System.out.println("\n Alunos em Final");
-        for (Estudante estudante : finais) {
-            System.out.println("Estudantes na turma " + identificacao + ":");
-            estudante.mostrarDadosEstudante();
-        }
-
-        System.out.println("\n Alunos Reprovados");
-            for (Estudante estudante : reprovados) {
-            System.out.println("Estudantes na turma " + identificacao + ":");
-            estudante.mostrarDadosEstudante();
-        }
-            
-     public void listarEstudantes() {
-        System.out.println("Estudantes na turma " + identificacao + ":");
-        for (Estudante estudante : estudantes) {
-            estudante.mostrarDadosEstudante();
-        }
+         
+}
+     public void listaDeFinais(){
+    
+    List<Estudante> finais = new ArrayList<>();
+    
+     for (Estudante estudante : estudantes) {
+            String situacao = estudante.getSituacao();
+           if (situacao.equals("Final")) {
+                finais.add(estudante);
+            } 
+    System.out.println("Lista de alunos na final: ");
+     System.out.println("Estudantes na turma " + identificacao + ":");
+     estudante.mostrarDadosEstudante();
+        
+     }
+}
+     public void listaDeReprovados(){
+    List<Estudante> reprovados = new ArrayList<>();
+    for (Estudante estudante : estudantes) {
+    String situacao = estudante.getSituacao();
+    if (situacao.equals("Reprovado")) {
+                reprovados.add(estudante);
+            }
     }
+    System.out.println("Lista de alunos reprovados: ");
+     for (Estudante estudante : reprovados) {
+            System.out.println("Estudantes na turma " + identificacao + ":");
+            estudante.mostrarDadosEstudante();
+        }
+    
+}        
             public void listarTodosAlunos() {
     System.out.println("Lista de Estudantes:");
     for (Estudante estudante : estudantes) {
@@ -129,7 +141,5 @@ class Turma{
         listarProfessores();  // Lista os professores
         listarEstudantes();   // Lista os estudantes
     }
-
-  
 
 }
