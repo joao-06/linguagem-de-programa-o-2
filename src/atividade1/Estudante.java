@@ -57,9 +57,10 @@ class Estudante extends Pessoa {
             return "SN"; // Sem nota de recuperação
         }
     }
-    public void notaFinal(double novaNota){
+    public void notaFinal(double novaNota, Double notaRecuperacao){
         System.out.println("digite a nota da final: ");
-        
+
+        novaNota = notaRecuperacao;
     }
         public void alterarNotaFinal(double novaNota) {
         if (this.getSituacao().equals("Final")) {
