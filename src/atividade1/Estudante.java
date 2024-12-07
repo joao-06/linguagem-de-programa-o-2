@@ -80,7 +80,6 @@ class Estudante extends Pessoa {
    
     public void adicionarNotaRecuperacao(double nota) {
         this.notaRecuperacao = nota;
-        calcularMedia();
     }
 
       public void alterarNota(double novaNota, String usuario) {
