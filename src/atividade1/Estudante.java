@@ -12,9 +12,10 @@ class Estudante extends Pessoa {
     private float nota2;
     private float nota3;
     private double media;
-    private Curso curso; //relacionar com a classe Curso
-    private Double notaRecuperacao; // Para armazenar a nota de recuperação
+    private Curso curso; 
+    private Double notaRecuperacao;
     private double novaNota;
+    private List<Log> logs;
 
     
     public Estudante(String nome, String cpf, String endereco, String telefone, String matricula,
@@ -25,7 +26,8 @@ class Estudante extends Pessoa {
         this.nota2 = nota2;
         this.nota3 = nota3;    
         this.curso = curso;
-        this.notaRecuperacao = null; // Sem nota de recuperação inicialmente
+        this.notaRecuperacao = null; 
+        this.logs = new ArrayList<>();
         calcularMedia();
     }
 
@@ -54,7 +56,7 @@ class Estudante extends Pessoa {
             }
             
         } else {
-            return "SN"; // Sem nota de recuperação
+            return "SN";
         }
     }
     public void notaFinal(double novaNota, Double notaRecuperacao){
@@ -79,6 +81,17 @@ class Estudante extends Pessoa {
     public void adicionarNotaRecuperacao(double nota) {
         this.notaRecuperacao = nota;
         calcularMedia();
+    }
+
+      public void alterarNota(double novaNota, String usuario) {
+        float antigaNota = this.media;
+
+        this.media = novaNota;
+        String acao = "Alteração de nota de " + antigaNota + " para " + novaNota;
+        Log log = new Log(usuario, acao);
+
+        logs.add(log);  
+        calcularMedia(); 
     }
 
     public Curso getCurso() {
@@ -119,6 +132,14 @@ class Estudante extends Pessoa {
 
     public void setNota3(float nota3) {
         this.nota3 = nota3;
+    }
+
+     public List<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
     }
      public void mostrarDadosEstudante() {
         mostrarDadosPessoa(); 
