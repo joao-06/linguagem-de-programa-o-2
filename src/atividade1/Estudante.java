@@ -77,7 +77,7 @@ class Estudante extends Pessoa {
         }
     }
 
-    // Método para adicionar a nota de recuperação
+   
     public void adicionarNotaRecuperacao(double nota) {
         this.notaRecuperacao = nota;
         calcularMedia();
