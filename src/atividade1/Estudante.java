@@ -84,7 +84,7 @@ class Estudante extends Pessoa {
     }
 
       public void alterarNota(double novaNota, String usuario) {
-        float antigaNota = this.media;
+        float antigaNota = this.nota1;
 
         this.media = novaNota;
         String acao = "Alteração de nota de " + antigaNota + " para " + novaNota;
