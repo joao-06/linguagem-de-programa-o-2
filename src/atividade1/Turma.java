@@ -159,5 +159,22 @@ class Turma{
             }
         }
         
+        public void resultadosDasFinais() {
+    System.out.println("Lista de Estudantes nas Finais:");
+    for (Estudante estudante : estudantes) {
+  
+        if (estudante.getSituacao().equals("Recuperação")) {
+ 
+            System.out.println("Nome: " + estudante.getNome());
+            System.out.println("Matrícula: " + estudante.getMatricula());
+            if (estudante.getNotaRecuperacao() != null) {
+                System.out.println("Nota da Final: " + estudante.getNotaRecuperacao());
+            } else {
+                System.out.println("Nota da Final: Não definida");
+            }
+            System.out.println("---------------------------");
+        }
+    }
+}
 
 }
