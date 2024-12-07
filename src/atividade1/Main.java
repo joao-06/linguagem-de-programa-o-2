@@ -31,6 +31,7 @@ import java.util.Scanner;
             System.out.println("6 - Listar dos alunos");
             System.out.println("7 - Resultado da final");
             System.out.println("8 - Historico");
+            System.out.println("9 - Lista de nota final da recuperação");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
             
@@ -181,6 +182,10 @@ import java.util.Scanner;
                     } else {
                         System.out.println("Professor não encontrado, acesso negado");
                     }
+                    break;
+
+                case 9:
+                    turma.listarAlunosRecuperacao();
                     break;
 
                 case 0:
