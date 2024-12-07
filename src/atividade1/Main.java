@@ -29,7 +29,8 @@ import java.util.Scanner;
             System.out.println("4 - Listar Cursos");
             System.out.println("5 - Listar Turma (Professores e Estudantes)");
             System.out.println("6 - Listar dos alunos");
-            System.out.println("7 - resultado da final");
+            System.out.println("7 - Resultado da final");
+            System.out.println("8 - Historico");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
             
@@ -167,6 +168,20 @@ import java.util.Scanner;
 
                 
                 break;
+                
+                case 8:
+                
+                System.out.print("Digite o SIAEP do Professor: ");
+                String siaepCoordenador = scanner.nextLine();
+
+                if (professorValido != null) {
+                    System.out.println("Histórico de Logs:");
+                    turma.listarLogs();
+
+                    } else {
+                        System.out.println("Professor não encontrado, acesso negado");
+                    }
+                    break;
 
                 case 0:
                     continuar = false;
