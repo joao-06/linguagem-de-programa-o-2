@@ -18,6 +18,7 @@ class Turma{
     private Curso curso;
     private List<Professor> professores;
     private List<Estudante> estudantes;
+    private List<Log> logs;
 
     
     public Turma(String identificacao, Curso curso) {
@@ -148,5 +149,14 @@ class Turma{
         listarProfessores();  // Lista os professores
         listarEstudantes();   // Lista os estudantes
     }
+
+    public void listarLogs() {
+        if (logs.isEmpty()) {
+            System.out.println("Nenhum log encontrado.");
+        } else {
+            for (Log log : logs) {
+                System.out.println(log);
+            }
+        }
 
 }
