@@ -185,7 +185,7 @@ import java.util.Scanner;
                     break;
 
                 case 9:
-                    turma.listarAlunosRecuperacao();
+                    turma.resultadosDasFinais();
                     break;
 
                 case 0:
