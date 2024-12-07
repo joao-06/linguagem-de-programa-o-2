@@ -25,10 +25,11 @@ import java.util.Scanner;
             
             System.out.println("1 - Cadastrar Estudante");
             System.out.println("2 - Cadastrar Professor");
-            System.out.println("3 - Listar Cursos");
-            System.out.println("4 - Listar Turma (Professores e Estudantes)");
-            System.out.println("5 - Listar dos alunos");
-            System.out.println("6 - resultado da final");
+            System.out.println("3 - Cadastrar Cordenador");
+            System.out.println("4 - Listar Cursos");
+            System.out.println("5 - Listar Turma (Professores e Estudantes)");
+            System.out.println("6 - Listar dos alunos");
+            System.out.println("7 - resultado da final");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
             
@@ -80,11 +81,30 @@ import java.util.Scanner;
                     break;
 
                 case 3:
+                      System.out.println("Cadastrar Coordenador:");
+                    System.out.print("Digite o SIAEP do Professor: ");
+                    String siaepCoordenador = scanner.nextLine();
+
+                    Professor professorValido = turma.buscarProfessorPorSIAEP(siaepCoordenador);  
+
+                    if (professorValido != null) {
+                        System.out.println("Professor autenticado com sucesso!");
+                        System.out.print("Digite o SIAEP do Professor que deseja cadastrar como Coordenador: ");
+                        String siaepCoordenador = scanner.nextLine();
+                        Professor professorCoordenador = turma.buscarProfessorPorSIAEP(siaepCoordenador);
+
+                    } else {
+                        System.out.println("Professor não encontrado com o SIAEP fornecido.");
+                    }
+                
+                    break;     
+
+                case 4:
                     System.out.println("Listar Cursos:");
                         curso.mostrarDadosCurso();
                     break;
 
-               case 4:
+               case 5:
               boolean continuarSubmenu = true;
                 while (continuarSubmenu) {
                     System.out.println("\n--- Submenu Listar Alunos ---");
@@ -122,12 +142,12 @@ import java.util.Scanner;
         }
     }
     break;
-              case 5:
+              case 6:
                 System.out.println("\n Lista de Todos os Alunos");
                 turma.listarTodosAlunos();
                 break;
 
-                 case 6:
+                 case 7:
                 System.out.println("1- lista de alunos aprovados na final");
                 System.out.println("1- lista de alunos reprovados na final");
 
