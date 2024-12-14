@@ -12,6 +12,10 @@ package atividade1;
 class Curso {
     private String nome;
     private int quantSemestre;
+    private double mediaAprovacao;
+    private double MediaRecuperacao;
+    private double MediaReprovacao;
+    
 
     public Curso(String nome, int quantSemestre) {
         this.nome = nome;
@@ -24,7 +28,7 @@ class Curso {
         return nome;
     }
 
-    public void setNomeCurso(String nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -34,6 +38,31 @@ class Curso {
 
     public void setQuantSemestre(int quantSemestre) {
         this.quantSemestre = quantSemestre;
+    }
+    
+    
+      public double getMediaAprovacao() {
+        return mediaAprovacao;
+    }
+
+    public void setMediaAprovacao(double mediaAprovacao) {
+        this.mediaAprovacao = mediaAprovacao;
+    }
+
+    public double getMediaRecuperacao() {
+        return MediaRecuperacao;
+    }
+
+    public void setMediaRecuperacao(double MediaRecuperacao) {
+        this.MediaRecuperacao = MediaRecuperacao;
+    }
+
+    public double getMediaReprovacao() {
+        return MediaReprovacao;
+    }
+
+    public void setMediaReprovacao(double MediaReprovacao) {
+        this.MediaReprovacao = MediaReprovacao;
     }
 
     public void mostrarDadosCurso() {
