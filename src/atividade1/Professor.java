@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package atividade1;
 
 /**
@@ -31,13 +26,12 @@ class Professor extends Pessoa {
     public void setSiaep(String siaep) {
         this.siaep = siaep;
     }
-    public void alterarNota(Estudante estudante, double novaNota, String usuario) {
+    public void alterarNota(Nota nota, double novaNota, String usuario) {
        
-        double antigaNota = estudante.getNota1(); // Alterar a primeira nota
+        double antigaNota = nota.getNota1(); // Alterar a primeira nota
 
         // Altera a nota do estudante
-        estudante.setNota1((float) novaNota);  // Atualizando a primeira nota do aluno
-        estudante.calcularMedia(); // Recalcula a média do aluno após a alteração
+        nota.getNota1();  // Atualizando a primeira nota do aluno
 
         // Criar o log da alteração
         String acao = "Alteração de nota de " + antigaNota + " para " + novaNota + " no aluno " + estudante.getNome();
@@ -65,4 +59,5 @@ class Professor extends Pessoa {
         System.out.println("SIAEP: " + siaep);
     }
 }
+
 
