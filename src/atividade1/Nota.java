@@ -18,8 +18,11 @@ public class Nota {
     Double peso2;
     Double peso3;
     Double media;
+    Double novaNota;
+    Double notaRecuperacao;
     Curso curso;
     Turma turma;
+    
     
     private Double calcularMedia() {
        if(nota1 == null || nota2 == null || nota3 == null){
@@ -34,7 +37,14 @@ public class Nota {
         
          if (media >= curso.getMediaAprovacao()) {
             return "Aprovado";
-        } else if (media >= curso.getMediaRecuperacao()) {
+        } else if (media <= curso.getMediaRecuperacao()) {
+            if(notaRecuperacao != null){
+                if(notaRecuperacao >= 7){
+                    return "Aluno aprovado na recuperação";
+                }else{
+                    return "Aluno reprovado";
+                }
+            }
             return "Recuperação";
         } else if (media >= curso.getMediaReprovacao()) {
             return "Reprovado";
@@ -43,6 +53,13 @@ public class Nota {
             
     }      
        
+         public void alterarNotaFinal(double novaNota) {
+             
+                this.notaRecuperacao = novaNota; 
+                System.out.println("Nota de recuperação alterada com sucesso.");
+               
+    }
+
 
     
       public Double getNota1() {
@@ -101,3 +118,4 @@ public class Nota {
         this.media = media;
     }
 }
+
