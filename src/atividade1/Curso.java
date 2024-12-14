@@ -14,18 +14,18 @@ class Curso {
     private int quantSemestre;
 
     public Curso(String nome, int quantSemestre) {
-        this.nomeCurso = nome;
+        this.nome = nome;
         this.quantSemestre = quantSemestre;
     }
 
     public Curso() {}
 
     public String getNome() {
-        return nomeCurso;
+        return nome;
     }
 
     public void setNomeCurso(String nome) {
-        this.nomeCurso = nomeCurso;
+        this.nome = nome;
     }
 
     public int getQuantSemestre() {
